@@ -202,8 +202,8 @@ procedure show_maintenance_menu(var f:novel_file);
         end;
         if(not eof(f))then begin
             n.code := head;
-            head := (-1 * filepos(f));
             seek(f, filepos(f)-1);
+            head := (-1 * filepos(f)); 
             write(f, n);
             seek(f, 0);
             n.code := head; {uso el mismo record para pasar el valor de head, a la head}
